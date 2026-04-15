@@ -6,7 +6,7 @@ export function FinalCta() {
           <div className="space-y-5">
             <p className="eyebrow">CTA</p>
             <h2 className="max-w-3xl text-4xl font-bold leading-none tracking-[-0.06em] md:text-7xl">
-              Construyamos algo que no pase desapercibido.
+              Construyamos algo que no pase desapercibido juntos.
             </h2>
           </div>
 
@@ -14,7 +14,7 @@ export function FinalCta() {
             href="mailto:hola@franja.dev"
             className="inline-flex items-center justify-center border border-accent bg-accent px-6 py-3 text-sm font-bold text-black hover:bg-transparent hover:text-accent"
           >
-            Contactarme
+            Contactanos
           </a>
         </div>
       </div>

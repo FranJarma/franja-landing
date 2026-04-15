@@ -4,12 +4,12 @@ import { useState } from "react";
 import { FranjaMark } from "@/components/franja-mark";
 
 const heroLinks = [
-  { label: "Trabajá conmigo", href: "#contacto", primary: true },
+  { label: "Trabajá con nosotros", href: "#contacto", primary: true },
   { label: "Ver proyectos", href: "#proyectos", primary: false },
 ];
 
 const navLinks = [
-  { label: "Sobre mí", href: "#sobre" },
+  { label: "Sobre nosotros", href: "#sobre" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Enfoque", href: "#enfoque" },
 ];
@@ -76,7 +76,7 @@ export function Hero() {
       <div className="grid gap-14 py-16 md:grid-cols-[minmax(0,1.2fr)_minmax(260px,0.8fr)] md:items-end md:py-20">
         <div className="space-y-8">
           <p className="eyebrow animate-rise [animation-delay:100ms] opacity-0">
-            Ingeniería, producto y dirección
+            Estrategia, diseño y tecnología
           </p>
           <div className="space-y-6">
             <h1 className="max-w-5xl animate-rise text-[clamp(4rem,14vw,9.5rem)] font-bold uppercase leading-[0.88] tracking-hero-tight opacity-0 [animation-delay:180ms]">
@@ -85,8 +85,8 @@ export function Hero() {
               la franja.
             </h1>
             <p className="max-w-xl animate-rise text-lg leading-8 text-white/70 opacity-0 [animation-delay:280ms] md:text-xl">
-              Diseño y construyo sistemas, productos y experiencias que no
-              siguen las reglas.
+              Diseñamos y construimos sistemas, productos y experiencias que
+              no siguen las reglas.
             </p>
           </div>
 
@@ -119,8 +119,8 @@ export function Hero() {
             <div className="ml-auto w-full max-w-xs space-y-4">
               <div className="franja-divider" />
               <p className="text-right text-sm leading-7 text-white/60">
-                No vendo horas. Diseño claridad, estructura y decisiones que
-                hacen que un producto avance.
+                No vendemos horas. Diseñamos claridad, estructura y decisiones
+                que hacen que un producto avance.
               </p>
             </div>
           </div>

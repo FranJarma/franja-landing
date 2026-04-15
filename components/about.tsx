@@ -1,9 +1,9 @@
 import { SectionHeading } from "@/components/section-heading";
 
 const pillars = [
-  "Sistemas escalables desde la base",
-  "Productos reales con criterio de negocio",
-  "Decisiones técnicas que simplifican a futuro",
+  "Estrategia y visión de producto desde el día uno",
+  "Ejecución técnica con criterio real de negocio",
+  "Sistemas pensados para escalar sin romperse",
 ];
 
 export function About() {
@@ -11,9 +11,9 @@ export function About() {
     <section id="sobre" className="section-frame py-24 md:py-32">
       <div className="grid gap-12 border-t border-white/10 pt-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <SectionHeading
-          label="Sobre mí"
-          title="Ingeniero de software y builder con foco en lo que sostiene de verdad."
-          body="Trabajo donde se cruzan producto, arquitectura y ejecución. Construyo con mirada técnica, pero también con criterio para negocio, claridad y velocidad."
+          label="Sobre nosotros"
+          title="Una agencia que trabaja donde se cruzan producto, diseño y tecnología."
+          body="No somos una fábrica de features. Somos un equipo que piensa antes de construir, con mirada técnica y criterio para que cada decisión haga avanzar al negocio."
         />
 
         <div className="space-y-10">

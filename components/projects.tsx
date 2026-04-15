@@ -7,8 +7,8 @@ export function Projects() {
       <div className="space-y-12 border-t border-white/10 pt-10">
         <SectionHeading
           label="Proyectos"
-          title="Productos, sistemas y superficies que empujan más allá del delivery."
-          body="Cada proyecto está pensado para ser entendible, escalable y útil. Menos ruido. Más intención."
+          title="Proyectos que empujan más allá del delivery."
+          body="Cada trabajo está pensado para ser entendible, escalable y útil. Menos ruido. Más intención."
         />
 
         <div className="grid gap-4 md:grid-cols-2">

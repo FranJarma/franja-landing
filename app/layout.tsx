@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Franja | Rompé el patrón",
   description:
-    "Ingeniero de software y builder enfocado en sistemas, producto y escalabilidad.",
+    "Agencia de producto y tecnología. Diseñamos y construimos sistemas, productos y experiencias que no siguen las reglas.",
 };
 
 export default function RootLayout({
