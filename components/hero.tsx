@@ -27,12 +27,12 @@ export function Hero() {
   }, [menuOpen]);
 
   return (
-    <section className="relative flex min-h-screen flex-col justify-between overflow-hidden pb-8 pt-24 md:pb-6 md:pt-28">
+    <section className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden pb-8 pt-24 md:min-h-screen md:pb-6 md:pt-28">
       <div className="pointer-events-none absolute inset-0">
         <img
           src="/hero.png"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[68%_center] md:object-right"
+          className="absolute inset-0 h-full w-full object-cover object-[75%_center] md:object-right"
         />
         <div className="absolute inset-0 bg-[#0B0B0B]/74 md:bg-[#0B0B0B]/68" />
         <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-[#0B0B0B] via-[#0B0B0B]/98 via-30% to-transparent md:w-[72%] md:via-[#0B0B0B]/90" />
