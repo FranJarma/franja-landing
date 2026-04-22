@@ -8,7 +8,7 @@ export function Projects() {
         <SectionHeading
           label="Servicios"
           title="Diseño, desarrollo y operación digital para marcas que necesitan resultados."
-          body="Tomamos cada proyecto de punta a punta: presencia digital, producto, automatización y despliegue. Menos humo. Más negocio en movimiento."
+          body="Tomamos cada proyecto de punta a punta: presencia digital, producto, automatización y despliegue."
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

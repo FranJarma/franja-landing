@@ -7,7 +7,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noreferrer"
       aria-label="Escribinos por WhatsApp"
-      className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full border border-accent/70 bg-[#0b0b0b]/90 text-accent shadow-[0_0_24px_rgba(0,255,156,0.22)] backdrop-blur transition hover:-translate-y-1 hover:bg-accent hover:text-black"
+      className="fixed bottom-[max(5.5rem,env(safe-area-inset-bottom))] right-4 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full border border-accent/70 bg-[#0b0b0b]/90 text-accent shadow-[0_0_24px_rgba(0,255,156,0.22)] backdrop-blur transition hover:-translate-y-1 hover:bg-accent hover:text-black md:bottom-5 md:right-5 md:h-14 md:w-14"
     >
       <svg
         width="24"
