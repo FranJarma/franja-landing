@@ -70,12 +70,6 @@ body {
     color: rgba(255, 255, 255, 0.64);
   }
 
-  .project-card {
-    @apply relative overflow-hidden border p-6 transition duration-300;
-    border-color: rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.02);
-  }
-
   .nav-link {
     @apply relative inline-flex items-center py-2 text-sm text-white/60 transition-colors duration-300;
   }
@@ -99,22 +93,6 @@ body {
   }
 
   .nav-link:hover::after {
-    transform: scaleX(1);
-  }
-
-  .project-card::before {
-    content: "";
-    position: absolute;
-    inset: 0 auto auto 0;
-    height: 1px;
-    width: 100%;
-    transform: scaleX(0);
-    transform-origin: left;
-    background: #00ff9c;
-    transition: transform 300ms ease;
-  }
-
-  .project-card:hover::before {
     transform: scaleX(1);
   }
 

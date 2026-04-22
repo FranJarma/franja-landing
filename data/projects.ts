@@ -21,7 +21,7 @@ export const services: Service[] = [
     name: "SEO y presencia web",
     description:
       "Optimizamos estructura, contenido y performance para que tu marca gane relevancia, autoridad y descubrimiento orgánico.",
-    stack: ["SEO Técnico", "Content", "Analytics", "Core Web Vitals"],
+    stack: ["SEO técnico", "Content", "Analytics", "Core Web Vitals"],
   },
   {
     order: 3,

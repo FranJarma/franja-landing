@@ -5,11 +5,13 @@ import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { Philosophy } from "@/components/philosophy";
 import { Projects } from "@/components/projects";
+import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 
 export default function Home() {
   return (
-    <main id="top" className="page-shell">
+    <main id="contenido" className="page-shell">
+      <SiteHeader />
       <Hero />
       <About />
       <Projects />
