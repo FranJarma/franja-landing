@@ -5,16 +5,12 @@ export function Philosophy() {
         <div className="space-y-6">
           <p className="eyebrow">Enfoque</p>
           <h2 className="max-w-xl text-3xl font-bold leading-tight tracking-[-0.05em] md:text-5xl">
-            No escribimos código para llenar un backlog.
+            Resolvemos problemas. Pensamos en sistemas. Optimizamos para
+            claridad, escalabilidad e intención.
           </h2>
         </div>
 
-        <div className="space-y-8">
-          <p className="text-2xl font-bold leading-tight tracking-[-0.04em] text-white/90 md:text-4xl">
-            Resolvemos problemas. Pensamos en sistemas. Optimizamos para
-            claridad, escalabilidad e intención.
-          </p>
-
+        <div className="space-y-8 mt-10">
           <div className="grid gap-6 sm:grid-cols-2">
             <p className="body-muted">
               Construimos productos que pueden crecer sin romperse y sin

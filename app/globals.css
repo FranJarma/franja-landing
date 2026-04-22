@@ -76,6 +76,32 @@ body {
     background-color: rgba(255, 255, 255, 0.02);
   }
 
+  .nav-link {
+    @apply relative inline-flex items-center py-2 text-sm text-white/60 transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: center;
+    translate: -50% 0;
+    background: #00ff9c;
+    transition: transform 300ms ease;
+  }
+
+  .nav-link:hover {
+    color: #00ff9c;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
   .project-card::before {
     content: "";
     position: absolute;
@@ -101,6 +127,40 @@ body {
       rgba(255, 255, 255, 0.08) 100%
     );
   }
+
+  .service-card {
+    @apply relative overflow-hidden border p-6 transition duration-300;
+    border-color: rgba(255, 255, 255, 0.1);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+      rgba(255, 255, 255, 0.02);
+  }
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(0, 255, 156, 0.12), transparent 50%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  .process-step {
+    @apply relative overflow-hidden border px-5 py-6 transition duration-300;
+    border-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .process-step:hover {
+    border-color: rgba(0, 255, 156, 0.45);
+    background-color: rgba(255, 255, 255, 0.04);
+    transform: translateY(-4px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -113,5 +173,48 @@ body {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+.franja-pulse-line {
+  stroke-dashoffset: 395;
+  animation: franjaPulseMain 4.6s linear infinite;
+}
+
+.franja-pulse-line-secondary {
+  stroke-dashoffset: 315;
+  animation: franjaPulseSecondary 5.4s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes franjaPulseMain {
+  from {
+    stroke-dashoffset: 395;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes franjaPulseSecondary {
+  from {
+    stroke-dashoffset: 315;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.franja-dot {
+  animation: franjaDotPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes franjaDotPulse {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.95;
   }
 }
