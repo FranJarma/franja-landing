@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { siteConfig, socialLinks } from "@/data/site";
+import { siteConfig, socialLinks } from "@/constants/landing";
 
 export function Footer() {
   return (

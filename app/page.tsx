@@ -1,10 +1,10 @@
-import { About } from "@/components/about";
-import { DeliveryCycle } from "@/components/delivery-cycle";
-import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
-import { Hero } from "@/components/hero";
-import { Philosophy } from "@/components/philosophy";
-import { Projects } from "@/components/projects";
+import { Hero } from "@/components/landing/hero/Hero";
+import { AboutSection } from "@/components/landing/sections/AboutSection";
+import { ContactSection } from "@/components/landing/sections/ContactSection";
+import { PhilosophySection } from "@/components/landing/sections/PhilosophySection";
+import { ProcessSection } from "@/components/landing/sections/ProcessSection";
+import { ServicesSection } from "@/components/landing/sections/ServicesSection";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 
@@ -13,11 +13,11 @@ export default function Home() {
     <main id="contenido" className="page-shell">
       <SiteHeader />
       <Hero />
-      <About />
-      <Projects />
-      <DeliveryCycle />
-      <Philosophy />
-      <FinalCta />
+      <AboutSection />
+      <ServicesSection />
+      <ProcessSection />
+      <PhilosophySection />
+      <ContactSection />
       <Footer />
       <WhatsAppFloat />
     </main>

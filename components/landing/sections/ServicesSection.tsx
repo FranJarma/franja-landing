@@ -1,19 +1,18 @@
-import { SectionHeading } from "@/components/section-heading";
-import { services } from "@/data/projects";
+import { services, servicesContent } from "@/constants/landing";
 
-export function Projects() {
+import { Badge } from "../shared/badge";
+import { Section } from "../shared/section";
+import { SectionHeader } from "../shared/section-header";
+
+export function ServicesSection() {
   return (
-    <section
-      id="servicios"
-      aria-labelledby="services-title"
-      className="section-frame py-24 md:py-32"
-    >
+    <Section id={servicesContent.id} labelledBy="services-title">
       <div className="space-y-12 border-t border-white/10 pt-10">
-        <SectionHeading
+        <SectionHeader
           id="services-title"
-          label="Servicios"
-          title="Diseño, desarrollo y operación digital para marcas que necesitan resultados."
-          body="Tomamos cada proyecto de punta a punta: presencia digital, producto, automatización y despliegue."
+          eyebrow={servicesContent.eyebrow}
+          heading={servicesContent.heading}
+          description={servicesContent.description}
         />
 
         <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -39,12 +38,9 @@ export function Projects() {
                   </div>
 
                   <ul className="flex flex-wrap gap-2">
-                    {service.stack.map((item) => (
-                      <li
-                        key={item}
-                        className="border border-white/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/50 transition group-hover:border-accent/50 group-hover:text-accent"
-                      >
-                        {item}
+                    {service.stack.map((stackItem) => (
+                      <li key={stackItem}>
+                        <Badge>{stackItem}</Badge>
                       </li>
                     ))}
                   </ul>
@@ -54,6 +50,6 @@ export function Projects() {
           ))}
         </ul>
       </div>
-    </section>
+    </Section>
   );
 }

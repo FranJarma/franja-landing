@@ -1,4 +1,4 @@
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/constants/landing";
 
 export function WhatsAppFloat() {
   return (

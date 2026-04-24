@@ -3,7 +3,67 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import { navLinks } from "@/data/site";
+import { navLinks } from "@/constants/landing";
+import { cn } from "@/lib/cn";
+
+type LogoLinkProps = {
+  priority?: boolean;
+  onClick?: () => void;
+  className?: string;
+};
+
+type MenuIconProps = {
+  open?: boolean;
+};
+
+function LogoLink({ priority, onClick, className }: LogoLinkProps) {
+  return (
+    <a
+      href="/"
+      className={cn("absolute left-1/2 -translate-x-1/2", className)}
+      onClick={onClick}
+      aria-label="Ir al inicio"
+    >
+      <Image
+        src="/logo.png"
+        alt="Franja"
+        width={1672}
+        height={941}
+        priority={priority}
+        className="h-20 w-auto md:h-24"
+        sizes="(max-width: 768px) 122px, 171px"
+      />
+    </a>
+  );
+}
+
+function MenuIcon({ open }: MenuIconProps) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      {open ? (
+        <>
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </>
+      ) : (
+        <>
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </>
+      )}
+    </svg>
+  );
+}
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,23 +80,12 @@ export function SiteHeader() {
     <>
       <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#0B0B0B]/88 backdrop-blur-xl">
         <div className="section-frame flex items-center py-4 md:py-5">
-          <a
-            href="/"
-            className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
-            aria-label="Ir al inicio"
-          >
-            <Image
-              src="/logo.png"
-              alt="Franja"
-              width={1672}
-              height={941}
-              priority
-              className="h-20 w-auto md:h-24"
-              sizes="(max-width: 768px) 122px, 171px"
-            />
-          </a>
+          <LogoLink priority className="md:static md:translate-x-0" />
 
-          <nav className="ml-auto hidden items-center gap-8 md:flex" aria-label="Navegación principal">
+          <nav
+            className="ml-auto hidden items-center gap-8 md:flex"
+            aria-label="Navegación principal"
+          >
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="nav-link">
                 {link.label}
@@ -52,52 +101,16 @@ export function SiteHeader() {
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              {menuOpen ? (
-                <>
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </>
-              ) : (
-                <>
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </>
-              )}
-            </svg>
+            <MenuIcon open={menuOpen} />
           </button>
         </div>
       </header>
 
-      {menuOpen && (
+      {menuOpen ? (
         <div className="fixed inset-0 z-50 bg-[#0B0B0B] md:hidden">
           <div className="section-frame flex h-full flex-col">
             <div className="relative flex items-center border-b border-white/10 py-4 md:py-5">
-              <a
-                href="/"
-                className="absolute left-1/2 -translate-x-1/2"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Ir al inicio"
-              >
-                <Image
-                  src="/logo.png"
-                  alt="Franja"
-                  width={1672}
-                  height={941}
-                  className="h-20 w-auto"
-                  sizes="122px"
-                />
-              </a>
+              <LogoLink onClick={() => setMenuOpen(false)} />
 
               <button
                 type="button"
@@ -105,19 +118,7 @@ export function SiteHeader() {
                 onClick={() => setMenuOpen(false)}
                 aria-label="Cerrar menú"
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  aria-hidden="true"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
+                <MenuIcon open />
               </button>
             </div>
 
@@ -139,7 +140,7 @@ export function SiteHeader() {
             </nav>
           </div>
         </div>
-      )}
+      ) : null}
     </>
   );
 }

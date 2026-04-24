@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 
-import { siteConfig } from "@/data/site";
+import { siteConfig } from "@/constants/landing";
 
 import "./globals.css";
 
