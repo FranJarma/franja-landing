@@ -1,13 +1,24 @@
 import Image from "next/image";
 
 import { siteConfig, socialLinks } from "@/constants/landing";
+import type { Locale } from "@/src/i18n/config";
+import type { Dictionary } from "@/types/landing";
 
-export function Footer() {
+type FooterProps = {
+  dictionary: Dictionary;
+  locale: Locale;
+};
+
+export function Footer({ dictionary, locale }: FooterProps) {
   return (
     <footer className="section-frame pb-10">
       <div className="flex flex-col gap-8 border-t border-white/10 pt-6 text-sm text-white/50 md:flex-row md:items-end md:justify-between">
         <div className="space-y-4">
-          <a href="/" className="inline-flex" aria-label="Ir al inicio">
+          <a
+            href={`/${locale}`}
+            className="inline-flex"
+            aria-label={dictionary.nav.home}
+          >
             <Image
               src="/logo.png"
               alt="Franja"
@@ -20,7 +31,7 @@ export function Footer() {
 
           <address className="space-y-1 not-italic">
             <p className="text-white/80">{siteConfig.legalName}</p>
-            <p>Agencia ágil de diseño, producto y tecnología.</p>
+            <p>{dictionary.footer.tagline}</p>
             <p>{siteConfig.location}</p>
             <p>
               <a href={`mailto:${siteConfig.email}`} className="hover:text-accent">
@@ -32,7 +43,7 @@ export function Footer() {
 
         <div className="space-y-3 md:text-right">
           <p className="text-xs uppercase tracking-[0.24em] text-white/35">
-            Redes sociales
+            {dictionary.footer.socialHeading}
           </p>
           <ul className="flex flex-wrap gap-5 md:justify-end">
             {socialLinks.map((link) => (

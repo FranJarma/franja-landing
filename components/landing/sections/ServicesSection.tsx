@@ -1,18 +1,23 @@
-import { services, servicesContent } from "@/constants/landing";
+import type { SectionContent, Service } from "@/types/landing";
 
 import { Badge } from "../shared/badge";
 import { Section } from "../shared/section";
 import { SectionHeader } from "../shared/section-header";
 
-export function ServicesSection() {
+type ServicesSectionProps = {
+  content: SectionContent;
+  services: Service[];
+};
+
+export function ServicesSection({ content, services }: ServicesSectionProps) {
   return (
-    <Section id={servicesContent.id} labelledBy="services-title">
+    <Section id={content.id} labelledBy="services-title">
       <div className="space-y-12 border-t border-white/10 pt-10">
         <SectionHeader
           id="services-title"
-          eyebrow={servicesContent.eyebrow}
-          heading={servicesContent.heading}
-          description={servicesContent.description}
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          description={content.description}
         />
 
         <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

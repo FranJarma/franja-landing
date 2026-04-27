@@ -1,28 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-import { navLinks } from "@/constants/landing";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { cn } from "@/lib/cn";
+import type { Locale } from "@/src/i18n/config";
+import type { Dictionary } from "@/types/landing";
 
 type LogoLinkProps = {
-  priority?: boolean;
-  onClick?: () => void;
   className?: string;
+  homeAriaLabel: string;
+  locale: Locale;
+  onClick?: () => void;
+  priority?: boolean;
 };
 
 type MenuIconProps = {
   open?: boolean;
 };
 
-function LogoLink({ priority, onClick, className }: LogoLinkProps) {
+type SiteHeaderProps = {
+  dictionary: Dictionary;
+  locale: Locale;
+};
+
+function LogoLink({
+  className,
+  homeAriaLabel,
+  locale,
+  onClick,
+  priority,
+}: LogoLinkProps) {
   return (
     <a
-      href="/"
+      href={`/${locale}`}
       className={cn("absolute left-1/2 -translate-x-1/2", className)}
       onClick={onClick}
-      aria-label="Ir al inicio"
+      aria-label={homeAriaLabel}
     >
       <Image
         src="/logo.png"
@@ -30,8 +45,8 @@ function LogoLink({ priority, onClick, className }: LogoLinkProps) {
         width={1672}
         height={941}
         priority={priority}
-        className="h-20 w-auto md:h-24"
-        sizes="(max-width: 768px) 122px, 171px"
+        className="h-20 w-auto lg:h-24"
+        sizes="(max-width: 1024px) 122px, 171px"
       />
     </a>
   );
@@ -65,7 +80,7 @@ function MenuIcon({ open }: MenuIconProps) {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ dictionary, locale }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -79,27 +94,40 @@ export function SiteHeader() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-[#0B0B0B]/88 backdrop-blur-xl">
-        <div className="section-frame flex items-center py-4 md:py-5">
-          <LogoLink priority className="md:static md:translate-x-0" />
+        <div className="section-frame flex items-center py-8 lg:py-5">
+          <LogoLink
+            priority
+            className="lg:static lg:translate-x-0"
+            homeAriaLabel={dictionary.nav.home}
+            locale={locale}
+          />
 
           <nav
-            className="ml-auto hidden items-center gap-8 md:flex"
-            aria-label="Navegación principal"
+            className="ml-auto hidden items-center gap-8 lg:flex"
+            aria-label={dictionary.nav.ariaLabel}
           >
-            {navLinks.map((link) => (
+            {dictionary.nav.links.map((link) => (
               <a key={link.href} href={link.href} className="nav-link">
                 {link.label}
               </a>
             ))}
           </nav>
 
+          <LanguageSwitcher
+            ariaLabel={dictionary.languageSwitcher.ariaLabel}
+            locale={locale}
+            className="ml-5 hidden lg:inline-flex"
+          />
+
           <button
             type="button"
-            className="ml-auto text-white/60 hover:text-accent md:hidden"
+            className="ml-auto text-white/60 hover:text-accent lg:hidden"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={
+              menuOpen ? dictionary.nav.closeMenu : dictionary.nav.openMenu
+            }
           >
             <MenuIcon open={menuOpen} />
           </button>
@@ -107,16 +135,20 @@ export function SiteHeader() {
       </header>
 
       {menuOpen ? (
-        <div className="fixed inset-0 z-50 bg-[#0B0B0B] md:hidden">
+        <div className="fixed inset-0 z-50 bg-[#0B0B0B] lg:hidden">
           <div className="section-frame flex h-full flex-col">
-            <div className="relative flex items-center border-b border-white/10 py-4 md:py-5">
-              <LogoLink onClick={() => setMenuOpen(false)} />
+            <div className="relative flex items-center border-b border-white/10 py-8 lg:py-5">
+              <LogoLink
+                homeAriaLabel={dictionary.nav.home}
+                locale={locale}
+                onClick={() => setMenuOpen(false)}
+              />
 
               <button
                 type="button"
                 className="ml-auto text-white/60 hover:text-accent"
                 onClick={() => setMenuOpen(false)}
-                aria-label="Cerrar menú"
+                aria-label={dictionary.nav.closeMenu}
               >
                 <MenuIcon open />
               </button>
@@ -125,9 +157,9 @@ export function SiteHeader() {
             <nav
               id="mobile-nav"
               className="flex flex-1 flex-col items-center justify-center gap-8 py-6"
-              aria-label="Navegación móvil"
+              aria-label={dictionary.nav.mobileAriaLabel}
             >
-              {navLinks.map((link) => (
+              {dictionary.nav.links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -137,6 +169,10 @@ export function SiteHeader() {
                   {link.label}
                 </a>
               ))}
+              <LanguageSwitcher
+                ariaLabel={dictionary.languageSwitcher.ariaLabel}
+                locale={locale}
+              />
             </nav>
           </div>
         </div>

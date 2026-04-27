@@ -1,49 +1,48 @@
 import type { ReactNode } from "react";
 
 export type SiteConfig = {
-  name: string;
-  legalName: string;
-  title: string;
   description: string;
-  url: string;
-  locale: string;
   email: string;
-  phone: string;
-  whatsappUrl: string;
+  legalName: string;
   location: string;
+  name: string;
+  phone: string;
+  title: string;
+  url: string;
+  whatsappUrl: string;
 };
 
 export type LinkItem = {
-  label: string;
   href: string;
+  label: string;
 };
 
 export type ExternalLinkItem = LinkItem;
 
 export type CtaLink = LinkItem & {
-  variant: "primary" | "secondary";
   external?: boolean;
+  variant: "primary" | "secondary";
 };
 
 export type SectionContent = {
-  id: string;
+  description?: string;
   eyebrow: string;
   heading: string;
-  description?: string;
+  id: string;
 };
 
 export type Service = {
-  order: number;
+  description: string;
   kicker: string;
   name: string;
-  description: string;
+  order: number;
   stack: string[];
 };
 
 export type ProcessStep = {
-  label: string;
-  heading: string;
   description: string;
+  heading: string;
+  label: string;
 };
 
 export type HeroContent = SectionContent & {
@@ -69,4 +68,43 @@ export type ContactContent = SectionContent & {
 
 export type WithChildren = {
   children: ReactNode;
+};
+
+export type Dictionary = {
+  about: AboutContent;
+  accessibility: {
+    skipToContent: string;
+  };
+  contact: ContactContent;
+  footer: {
+    socialHeading: string;
+    tagline: string;
+  };
+  hero: HeroContent;
+  languageSwitcher: {
+    ariaLabel: string;
+  };
+  metadata: {
+    description: string;
+    keywords: string[];
+    ogImageAlt: string;
+    title: string;
+  };
+  nav: {
+    ariaLabel: string;
+    closeMenu: string;
+    home: string;
+    links: LinkItem[];
+    mobileAriaLabel: string;
+    openMenu: string;
+  };
+  philosophy: PhilosophyContent;
+  process: ProcessContent;
+  services: {
+    items: Service[];
+    section: SectionContent;
+  };
+  whatsapp: {
+    ariaLabel: string;
+  };
 };

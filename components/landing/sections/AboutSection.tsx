@@ -1,24 +1,28 @@
-import { aboutContent } from "@/constants/landing";
+import type { AboutContent } from "@/types/landing";
 
 import { FranjaDivider } from "../shared/franja-divider";
 import { Section } from "../shared/section";
 import { SectionHeader } from "../shared/section-header";
 
-export function AboutSection() {
+type AboutSectionProps = {
+  content: AboutContent;
+};
+
+export function AboutSection({ content }: AboutSectionProps) {
   return (
-    <Section id={aboutContent.id} labelledBy="about-title">
+    <Section id={content.id} labelledBy="about-title">
       <div className="grid gap-12 border-t border-white/10 pt-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <SectionHeader
           id="about-title"
-          eyebrow={aboutContent.eyebrow}
-          heading={aboutContent.heading}
-          description={aboutContent.description}
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          description={content.description}
         />
 
         <div className="space-y-10">
           <FranjaDivider />
           <ul className="space-y-6">
-            {aboutContent.pillars.map((pillar) => (
+            {content.pillars.map((pillar) => (
               <li
                 key={pillar}
                 className="flex items-start gap-4 border-b border-white/10 pb-5"

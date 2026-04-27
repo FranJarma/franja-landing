@@ -1,1 +1,1 @@
-export { navLinks, siteConfig, socialLinks } from "@/constants/landing";
+export { siteConfig, socialLinks } from "@/constants/landing";
