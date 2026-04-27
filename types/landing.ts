@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { ContactFormValidationMessages } from "@/src/contact-form/schema";
 
 export type SiteConfig = {
   description: string;
@@ -64,6 +65,33 @@ export type PhilosophyContent = Omit<SectionContent, "description"> & {
 
 export type ContactContent = SectionContent & {
   ctas: CtaLink[];
+  form: ContactFormContent;
+};
+
+export type ContactFormContent = {
+  fields: {
+    budgetRange: string;
+    companyName: string;
+    email: string;
+    fullName: string;
+    message: string;
+    phone: string;
+    projectType: string;
+    source: string;
+    urgency: string;
+  };
+  placeholders: {
+    companyName: string;
+    email: string;
+    fullName: string;
+    message: string;
+    phone: string;
+  };
+  selectPlaceholder: string;
+  submitLabel: string;
+  submittingLabel: string;
+  successMessage: string;
+  validation: ContactFormValidationMessages;
 };
 
 export type WithChildren = {

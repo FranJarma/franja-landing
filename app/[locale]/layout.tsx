@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
 import { Sora } from "next/font/google";
-import { notFound } from "next/navigation";
 
 import { siteConfig } from "@/constants/landing";
 import {
   localeMetadata,
   locales,
   type Locale,
-  isValidLocale,
 } from "@/src/i18n/config";
 import { getDictionary } from "@/src/i18n/dictionaries";
 
@@ -22,9 +19,11 @@ const sora = Sora({
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;
   params: Promise<{
-    locale: string;
+    locale: Locale;
   }>;
 }>;
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -32,14 +31,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: Pick<LocaleLayoutProps, "params">): Promise<Metadata> {
-  const { locale: localeParam } = await params;
-
-  if (!isValidLocale(localeParam)) {
-    return {};
-  }
-
-  const locale = localeParam;
+}: Pick<LocaleLayoutProps, "params">) {
+  const { locale } = await params;
   const dictionary = getDictionary(locale);
   const canonicalPath = `/${locale}`;
   const title = dictionary.metadata.title;
@@ -113,16 +106,12 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const { locale: localeParam } = await params;
+  const { locale } = await params;
 
-  if (!isValidLocale(localeParam)) {
-    notFound();
-  }
-
-  const dictionary = getDictionary(localeParam);
+  const dictionary = getDictionary(locale);
 
   return (
-    <html lang={localeParam} className={sora.variable}>
+    <html lang={locale} className={sora.variable}>
       <body className="bg-background font-sans text-foreground">
         <a href="#contenido" className="sr-only focus:not-sr-only">
           {dictionary.accessibility.skipToContent}

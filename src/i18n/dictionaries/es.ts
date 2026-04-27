@@ -113,10 +113,10 @@ export const es = {
       },
       {
         order: 6,
-        kicker: "Reportes",
-        name: "Reportes y análisis de datos",
+        kicker: "Branding",
+        name: "Branding y diseño visual para marcas digitales",
         description:
-          "Transformamos datos en resultados accionables con reportes personalizados que conectan fuentes, visualizan métricas clave y guían decisiones.",
+          "Creamos identidades visuales coherentes y experiencias de marca que se destacan en el mercado.",
         stack: ["Data Sources", "ETL", "Dashboards", "Insights"],
       },
     ],
@@ -196,6 +196,43 @@ export const es = {
         variant: "secondary",
       },
     ],
+    form: {
+      fields: {
+        fullName: "Nombre y apellido",
+        companyName: "Empresa o emprendimiento",
+        email: "Email",
+        phone: "WhatsApp",
+        projectType: "Tipo de proyecto",
+        budgetRange: "Presupuesto estimado",
+        urgency: "Urgencia",
+        message: "Mensaje o descripción del proyecto",
+        source: "Cómo conoció Franja",
+      },
+      placeholders: {
+        fullName: "Ej. Martina López",
+        companyName: "Ej. Norte Studio",
+        email: "hola@empresa.com",
+        phone: "+54 9 387 000 0000",
+        message:
+          "Contanos qué necesitás construir, qué problema querés resolver y en qué etapa está el proyecto.",
+      },
+      selectPlaceholder: "Seleccionar",
+      submitLabel: "Solicitar diagnóstico",
+      submittingLabel: "Enviando...",
+      successMessage:
+        "Recibimos tu consulta. Vamos a analizar tu proyecto y te contactaremos pronto.",
+      validation: {
+        fullName: "Ingresá tu nombre y apellido.",
+        companyName: "Ingresá el nombre de tu empresa o emprendimiento.",
+        email: "Ingresá un email válido.",
+        phone: "Ingresá un WhatsApp válido.",
+        projectType: "Seleccioná un tipo de proyecto.",
+        budgetRange: "Seleccioná un presupuesto estimado.",
+        urgency: "Seleccioná una urgencia.",
+        message: "Contanos un poco más sobre el proyecto.",
+        source: "Contanos cómo conociste Franja.",
+      },
+    },
   },
   footer: {
     tagline: "Agencia ágil de diseño, producto y tecnología.",

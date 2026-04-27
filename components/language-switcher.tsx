@@ -1,7 +1,5 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-
 import { cn } from "@/lib/cn";
 import {
   localeLabels,
@@ -33,9 +31,6 @@ export function LanguageSwitcher({
   className,
   locale,
 }: LanguageSwitcherProps) {
-  const pathname = usePathname();
-  const router = useRouter();
-
   return (
     <nav
       aria-label={ariaLabel}
@@ -45,7 +40,7 @@ export function LanguageSwitcher({
       )}
     >
       {locales.map((targetLocale) => {
-        const localizedPath = getLocalizedPath(pathname, targetLocale);
+        const localizedPath = `/${targetLocale}`;
         const active = targetLocale === locale;
 
         return (
@@ -56,8 +51,8 @@ export function LanguageSwitcher({
             aria-current={active ? "true" : undefined}
             onClick={(event) => {
               event.preventDefault();
-              router.push(
-                `${localizedPath}${window.location.search}${window.location.hash}`,
+              window.location.assign(
+                `${getLocalizedPath(window.location.pathname, targetLocale)}${window.location.search}${window.location.hash}`,
               );
             }}
             className={cn(

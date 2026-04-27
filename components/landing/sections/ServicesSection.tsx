@@ -1,6 +1,5 @@
 import type { SectionContent, Service } from "@/types/landing";
 
-import { Badge } from "../shared/badge";
 import { Section } from "../shared/section";
 import { SectionHeader } from "../shared/section-header";
 
@@ -42,13 +41,6 @@ export function ServicesSection({ content, services }: ServicesSectionProps) {
                     </p>
                   </div>
 
-                  <ul className="flex flex-wrap gap-2">
-                    {service.stack.map((stackItem) => (
-                      <li key={stackItem}>
-                        <Badge>{stackItem}</Badge>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </article>
             </li>

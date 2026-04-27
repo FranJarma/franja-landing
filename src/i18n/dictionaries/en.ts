@@ -77,7 +77,7 @@ export const en = {
         name: "Modern landing pages",
         description:
           "Design and deployment of fast, clear and visually strong landing pages to validate offers, capture leads and improve conversion.",
-        stack: ["UX/UI", "Next.js", "Performance", "Deploy"],
+        stack: [],
       },
       {
         order: 2,
@@ -113,10 +113,10 @@ export const en = {
       },
       {
         order: 6,
-        kicker: "Reporting",
-        name: "Reports and data analysis",
+        kicker: "Branding",
+        name: "Branding and visual design for digital brands",
         description:
-          "We turn data into actionable outcomes with custom reports that connect sources, visualize key metrics and guide decisions.",
+          "We create consistent visual identities and brand experiences that stand out in the market.",
         stack: ["Data Sources", "ETL", "Dashboards", "Insights"],
       },
     ],
@@ -196,6 +196,43 @@ export const en = {
         variant: "secondary",
       },
     ],
+    form: {
+      fields: {
+        fullName: "Full name",
+        companyName: "Company or business",
+        email: "Email",
+        phone: "WhatsApp",
+        projectType: "Project type",
+        budgetRange: "Estimated budget",
+        urgency: "Urgency",
+        message: "Project message or description",
+        source: "How did you hear about us",
+      },
+      placeholders: {
+        fullName: "E.g. Martina Lopez",
+        companyName: "E.g. Norte Studio",
+        email: "hello@company.com",
+        phone: "+54 9 387 000 0000",
+        message:
+          "Tell us what you need to build, what problem you want to solve, and what stage the project is in.",
+      },
+      selectPlaceholder: "Select",
+      submitLabel: "Request diagnosis",
+      submittingLabel: "Sending...",
+      successMessage:
+        "We received your inquiry. We will review your project and contact you soon.",
+      validation: {
+        fullName: "Enter your full name.",
+        companyName: "Enter your company or business name.",
+        email: "Enter a valid email address.",
+        phone: "Enter a valid WhatsApp number.",
+        projectType: "Select a project type.",
+        budgetRange: "Select an estimated budget.",
+        urgency: "Select an urgency level.",
+        message: "Tell us a little more about the project.",
+        source: "Tell us how you heard about Franja.",
+      },
+    },
   },
   footer: {
     tagline: "Agile design, product and technology agency.",
